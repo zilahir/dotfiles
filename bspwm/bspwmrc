@@ -63,8 +63,9 @@ config() { bspc config "$@" & }
 
 # polybar
 
-killall -q polybar
-polybar &
+# killall -q polybar
+
+$HOME/.config/polybar/launch.sh &
 
 # Run keybindings daemon.
 pgrep -x sxhkd > /dev/null || sxhkd &
@@ -104,9 +105,9 @@ xsetroot -cursor_name left_ptr
 # #                                 WINDOW RULES                               #
 # #############################################################################
 
-bspc monitor -d 1 2 3 4 5 6
+bspc monitor eDP -d 1 2 3 4 5
 
-# bspc monitor HDMI-A-0 7 8 9 10 11
+bspc monitor HDMI-A-0 -d 6 7 8 9 10
 
 INTERNAL_MONITOR="eDP"
 EXTERNAL_MONITOR="HDMI-A-0"
@@ -152,7 +153,7 @@ monitor_remove() {
   bspc desktop Desktop --remove
 
   # reorder desktops
-  bspc monitor "$INTERNAL_MONITOR" -o 1 2 3 4 5 6 7 8 9 10
+  bspc monitor "$INTERNAL_MONITOR" -o 1 2 3 4 5
 }
 
 bspc config remove_unplugged_monitors = true
@@ -167,16 +168,16 @@ rule feh                            state=floating
 # #                            GENERAL CONFIGURATION                           #
 # ##############################################################################
 
-bspc subscribe node_state | while read -r _ _ _ _ state flag; do
-    if [ "$state" != "fullscreen" ]; then
-        continue
-    fi
-    if [ "$flag" == on ]; then
-        $HOME/.local/bin/eww -c $HOME/.config/eww/bar close-all
-  else
-        $HOME/.local/bin/eww -c $HOME/.config/eww/bar open bar
-    fi
-done &
+#bspc subscribe node_state | while read -r _ _ _ _ state flag; do
+#    if [ "$state" != "fullscreen" ]; then
+#        continue
+#    fi
+#    if [ "$flag" == on ]; then
+        #$HOME/.local/bin/eww -c $HOME/.config/eww/bar close-all
+#  else
+        #$HOME/.local/bin/eww -c $HOME/.config/eww/bar open bar
+#    fi
+#done &
 
 
 LEFT_PADDING=0 && [[ "$IS_EWW_ON" = true ]] && LEFT_PADDING=46
@@ -184,6 +185,7 @@ config left_padding "$LEFT_PADDING"
 config border_width 0.5
 config window_gap 10
 bspc config border_radius 30
+# bspc config ignore_ewmh_struts true
 config split_ratio 0.50
 
 config borderless_monocle true
