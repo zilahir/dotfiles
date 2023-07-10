@@ -28,7 +28,6 @@ entry {
     blink:                          true;
     border:                         0px 0px 3px 0px;
     border-radius:                  6px;
-    border-color:                   @border;
 }
 
 inputbar {
