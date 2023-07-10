@@ -20,7 +20,7 @@ export PATH="${PATH}:${HOME}/.config/bspwm/bin"
 IS_EWW_ON = false;
 
 # Parse colors from "~/.Xresources"
-xrdb -override "${HOME}/.Xresources"
+xrdb -override "${HOME}/.config/misc/.Xresources"
 
 xrdb_query()
 {
@@ -80,7 +80,7 @@ fi
 dunst --config $HOME/.config/dunst/dunstrc &
 
 # Run Picom.
-picom --experimental-backends --config $HOME/.config/picom/picom.conf &
+picom --config $HOME/.config/picom/picom.conf &
 
 # Run polkit daemon if doesn't started.
 [ -n "$(pidof xfce-polkit)" ] || /usr/lib/xfce-polkit/xfce-polkit &

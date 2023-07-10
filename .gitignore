@@ -1,5 +1,6 @@
 *
 
+!picom/*
 !bspwm/*
 !eww/*
 !polybar/*
