@@ -182,7 +182,7 @@ rule feh                            state=floating
 
 LEFT_PADDING=0 && [[ "$IS_EWW_ON" = true ]] && LEFT_PADDING=46
 config left_padding "$LEFT_PADDING"
-config border_width 0.5
+config border_width 0
 config window_gap 10
 bspc config border_radius 30
 # bspc config ignore_ewmh_struts true
