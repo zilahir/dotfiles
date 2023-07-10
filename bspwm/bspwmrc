@@ -114,11 +114,11 @@ EXTERNAL_MONITOR="HDMI-A-0"
 
 if [[ $(xrandr -q | grep "${EXTERNAL_MONITOR} connected") ]]; then
   # set xrandr rules for docked setup
-  xrandr --output "$INTERNAL_MONITOR" --mode 1920x1080 --pos 0x0 --rotate normal --output "$EXTERNAL_MONITOR" --primary --mode 1920x1080 --pos 1920x0 --rotate normal  --left-of eDP
+  xrandr --output "$INTERNAL_MONITOR" --primary --mode 1920x1080 --pos 0x0 --rotate normal --output "$EXTERNAL_MONITOR" --mode 1920x1080 --pos 1920x0 --rotate normal  --left-of eDP
   if [[ $(bspc query -D -m "${EXTERNAL_MONITOR}" | wc -l) -ne 5 ]]; then
     monitor_add
   fi
-  bspc wm -O "$EXTERNAL_MONITOR" "$INTERNAL_MONITOR"
+  bspc wm -O "$INTERNAL_MONITOR" "$EXTERNAL_MONITOR"
 else
   # set xrandr rules for mobile setup
   xrandr --output "$INTERNAL_MONITOR" --primary --mode 1920x1080 --pos 0x0 --rotate normal --output "$EXTERNAL_MONITOR" --off
