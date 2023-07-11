@@ -105,9 +105,9 @@ xsetroot -cursor_name left_ptr
 # #                                 WINDOW RULES                               #
 # #############################################################################
 
-bspc monitor eDP -d 1 2 3 4 5
+bspc monitor eDP -n 1 -d 1 2 3 4 5
 
-bspc monitor HDMI-A-0 -d 6 7 8 9 10
+bspc monitor HDMI-A-0 -n 2 -d 6 7 8 9 10
 
 INTERNAL_MONITOR="eDP"
 EXTERNAL_MONITOR="HDMI-A-0"
