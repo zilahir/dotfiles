@@ -103,20 +103,20 @@ bspc monitor eDP -n 1 -d 1 2 3 4 5
 
 bspc monitor HDMI-A-0 -n 2 -d 6 7 8 9 10
 
-INTERNAL_MONITOR="1"
-EXTERNAL_MONITOR="2"
+INTERNAL_MONITOR="eDP"
+EXTERNAL_MONITOR="HDMI-A-0"
 
 if [[ $(xrandr -q | grep "${EXTERNAL_MONITOR} connected") ]]; then
   # set xrandr rules for docked setup
   xrandr --output "$INTERNAL_MONITOR" --primary --mode 1920x1080 --pos 0x0 --rotate normal --output "$EXTERNAL_MONITOR" --mode 1920x1080 --pos 1920x0 --rotate normal  --left-of eDP
-  if [[ $(bspc query -D -m "${EXTERNAL_MONITOR}" | wc -l) -ne 5 ]]; then
+  if [[ $(bspc query -D -m "2" | wc -l) -eq 5 ]]; then
     monitor_add
   fi
-  bspc wm -O "$INTERNAL_MONITOR" "$EXTERNAL_MONITOR"
+  # bspc wm -O "$INTERNAL_MONITOR" "$EXTERNAL_MONITOR"
 else
   # set xrandr rules for mobile setup
   xrandr --output "$INTERNAL_MONITOR" --primary --mode 1920x1080 --pos 0x0 --rotate normal --output "$EXTERNAL_MONITOR" --off
-  if [[ $(bspc query -D -m "${INTERNAL_MONITOR}" | wc -l) -ne 10 ]]; then
+  if [[ $(bspc query -D -m "1" | wc -l) -ne 5 ]]; then
     monitor_remove
   fi
 fi
@@ -124,14 +124,14 @@ fi
 monitor_add() {
   # Move first 5 desktops to external monitor
   for desktop in $(bspc query -D --names -m "$INTERNAL_MONITOR" | sed 5q); do
-    bspc desktop "$desktop" --to-monitor "$EXTERNAL_MONITOR"
+    # bspc desktop "$desktop" --to-monitor "$EXTERNAL_MONITOR"
   done
 
   # Remove default desktop created by bspwm
   bspc desktop Desktop --remove
 
   # reorder monitors
-  bspc wm -O "$EXTERNAL_MONITOR" "$INTERNAL_MONITOR"
+  bspc wm -O "1" "2"
 }
 
 monitor_remove() {
