@@ -10,10 +10,6 @@
 ##################### By: zilahir  ####################
 ################### forked: Rxyhn  ####################
 
-# ##############################################################################
-# #                                  ENV VARS                                  # 
-# ##############################################################################
-
 ## Environments
 export PATH="${PATH}:${HOME}/.config/bspwm/bin"
 
@@ -63,8 +59,6 @@ config() { bspc config "$@" & }
 
 # polybar
 
-# killall -q polybar
-
 $HOME/.config/polybar/launch.sh &
 
 # Run keybindings daemon.
@@ -109,8 +103,8 @@ bspc monitor eDP -n 1 -d 1 2 3 4 5
 
 bspc monitor HDMI-A-0 -n 2 -d 6 7 8 9 10
 
-INTERNAL_MONITOR="eDP"
-EXTERNAL_MONITOR="HDMI-A-0"
+INTERNAL_MONITOR="1"
+EXTERNAL_MONITOR="2"
 
 if [[ $(xrandr -q | grep "${EXTERNAL_MONITOR} connected") ]]; then
   # set xrandr rules for docked setup
@@ -157,6 +151,8 @@ monitor_remove() {
 }
 
 bspc config remove_unplugged_monitors = true
+bspc rule -a 1Password state=floating center=true rectangle=790xd10+0+0
+bspc rule -a gnome-control-center state=floating center=true rectangle=790xd10+0+0
 
 rule -a kitty                       follow=on focus=on
 rule -a Code                        follow=on focus=on
@@ -168,24 +164,12 @@ rule feh                            state=floating
 # #                            GENERAL CONFIGURATION                           #
 # ##############################################################################
 
-#bspc subscribe node_state | while read -r _ _ _ _ state flag; do
-#    if [ "$state" != "fullscreen" ]; then
-#        continue
-#    fi
-#    if [ "$flag" == on ]; then
-        #$HOME/.local/bin/eww -c $HOME/.config/eww/bar close-all
-#  else
-        #$HOME/.local/bin/eww -c $HOME/.config/eww/bar open bar
-#    fi
-#done &
-
 
 LEFT_PADDING=0 && [[ "$IS_EWW_ON" = true ]] && LEFT_PADDING=46
 config left_padding "$LEFT_PADDING"
 config border_width 0
 config window_gap 10
 bspc config border_radius 30
-# bspc config ignore_ewmh_struts true
 config split_ratio 0.50
 
 config borderless_monocle true

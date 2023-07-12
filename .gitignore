@@ -4,6 +4,6 @@
 !picom/*
 !bspwm/*
 !eww/*
-!polybar/*
+!polybar/**
 !rofi/*
 !.gitignore
