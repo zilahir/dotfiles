@@ -151,8 +151,8 @@ monitor_remove() {
 }
 
 bspc config remove_unplugged_monitors = true
-bspc rule -a 1Password state=floating center=true rectangle=790xd10+0+0
-bspc rule -a gnome-control-center state=floating center=true rectangle=790xd10+0+0
+rule -a 1Password state=floating center=true rectangle=790xd10+0+0
+rule -a gnome-control-center state=floating center=true rectangle=790xd10+0+0
 
 rule -a kitty                       follow=on focus=on
 rule -a Code                        follow=on focus=on
