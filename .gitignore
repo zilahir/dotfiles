@@ -1,6 +1,6 @@
 *
 
-!nvim
+!nvim/**
 !picom/*
 !bspwm/*
 !eww/*
