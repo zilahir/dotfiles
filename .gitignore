@@ -1,9 +1,6 @@
 *
 
 !nvim
-!picom/*
-!bspwm/*
-!eww/*
-!polybar/**
-!rofi/*
-!.gitignore
+!tmux
+!zshrc
+!kitty
