@@ -1,9 +1,1 @@
-*
-
-
-!.gitignore
-!README.md
-!nvim/
-!tmux/
-!zshrc/
-!kitty/
+.DS_Store
