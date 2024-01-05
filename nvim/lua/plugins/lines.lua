@@ -1,3 +1,8 @@
 return {
-  { "lukas-reineke/indent-blankline.nvim", enabled = false }
+  "echasnovski/mini.indentscope",
+  opts = {
+    draw = {
+      animation = require("mini.indentscope").gen_animation.none(),
+    },
+  },
 }
