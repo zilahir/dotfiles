@@ -128,3 +128,5 @@ esac
 # pnpm end
 
 eval "$(zoxide init zsh)"
+
+# alias config="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
