@@ -11,6 +11,7 @@ return {
                 hl.IblIndent = {
                     fg = "#242635"
                 }
+                hl["@constructor.tsx"] = { link = "@tag.tsx" }
             end,
         },
     },
