@@ -12,6 +12,7 @@ return {
                     fg = "#242635"
                 }
                 hl["@constructor.tsx"] = { link = "@tag.tsx" }
+                hl["@tag.attribute.tsx"] = { link = "@parameter" }
             end,
         },
     },
