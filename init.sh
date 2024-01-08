@@ -3,7 +3,7 @@ git clone --bare git@github.com:zilahir/dotfiles.git $HOME/.config
 # define config alias locally since the dotfiles
 # aren't installed on the system yet
 function config {
-	git --git-dir=$HOME/.config --work-tree=$HOME $@
+	git --git-dir=$HOME/.config --work-tree=$HOME/.config $@
 }
 # create a directory to backup existing dotfiles to
 mkdir -p .dotfiles-backup
