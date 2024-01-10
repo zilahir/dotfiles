@@ -1,4 +1,8 @@
 local map = vim.keymap.set
+local mouse = vim.opt.mouse
+
+-- disable mouse
+mouse = ""
 
 map("t", "<C-t>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 map("n", "<leader>í", function() require("trouble").toggle() end)
@@ -27,3 +31,7 @@ map('v', '<Up>', '<Nop>', opts)
 map('v', '<Down>', '<Nop>', opts)
 map('v', '<Left>', '<Nop>', opts)
 map('v', '<Right>', '<Nop>', opts)
+
+-- quick vertical navigation
+map('n', '<C-j>', '10j', { noremap = true, silent = true })
+map('n', '<C-k>', '10k', { noremap = true, silent = true })
