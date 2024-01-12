@@ -27,9 +27,14 @@ return {
           servers = {
             tsserver = {},
             tailwindcss = {},
+            lua_ls = {},
           },
           ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
           setup = {
+            lua_ls = function(_, opts)
+              require'lspconfig'.lua_ls.setup{}
+              return true
+            end,
             tsserver = function(_, opts)
               require("typescript").setup({ server = opts })
               return true
