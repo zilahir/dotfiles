@@ -1,5 +1,0 @@
-return {
-  {
-    "derektata/lorem.nvim",
-  },
-}
