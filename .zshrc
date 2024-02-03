@@ -129,3 +129,6 @@ esac
 eval "$(zoxide init zsh)"
 
 alias dotfiles="git --git-dir=$HOME/zilahir/dotfiles --work-tree=$HOME"
+
+alias ls=". ~/bin/ls"
+
