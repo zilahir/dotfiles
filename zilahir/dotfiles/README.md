@@ -27,3 +27,7 @@
 #### fd
 
 [`fd`](https://github.com/sharkdp/fd)
+
+#### zsh-syntax-highlighting.zsh
+
+[`zsh-syntax-highlighting.zsh`](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
