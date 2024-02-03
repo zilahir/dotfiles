@@ -11,3 +11,19 @@
 #### Eza
 
 [`Eza`](https://github.com/eza-community/eza)
+
+#### Tree
+
+[tree](https://github.com/kddnewton/tree)
+
+#### gitui
+
+[`gitui`](https://github.com/extrawurst/gitui)
+
+#### ripgrep
+
+[`ripgrep`](https://github.com/BurntSushi/ripgrep)
+
+#### fd
+
+[`fd`](https://github.com/sharkdp/fd)
