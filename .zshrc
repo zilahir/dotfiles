@@ -129,10 +129,10 @@ esac
 eval "$(zoxide init zsh)"
 
 alias dotfiles="git --git-dir=$HOME/zilahir/dotfiles --work-tree=$HOME"
+alias gitui="eval '$(ssh-agent)' && ssh-add ~/.ssh/id_ed25519 && gitui"
 
 alias ls=". ~/bin/ls"
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-eval "$(atuin init zsh)"
 eval "$(atuin init zsh)"
