@@ -31,3 +31,7 @@
 #### zsh-syntax-highlighting.zsh
 
 [`zsh-syntax-highlighting.zsh`](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
+
+#### atuin
+
+[`atuion`](https://github.com/atuinsh/atuin)

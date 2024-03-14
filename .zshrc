@@ -133,3 +133,6 @@ alias dotfiles="git --git-dir=$HOME/zilahir/dotfiles --work-tree=$HOME"
 alias ls=". ~/bin/ls"
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+eval "$(atuin init zsh)"
+eval "$(atuin init zsh)"
