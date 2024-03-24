@@ -1,5 +1,5 @@
 #!/bin/bash
 
-function lss { eza -l --icons; }
+function lss { eza -l --icons --all; }
 
 lss
