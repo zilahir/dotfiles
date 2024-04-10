@@ -3,7 +3,7 @@
 ## install
 
 ```bash
-git clone --separate-git-dir=$HOME/.dotfiles https://github.com/zilahir/dotfiles.git ~
+git clone --separate-git-dir=$HOME/zilahir/dotfiles https://github.com/zilahir/dotfiles.git ~
 ```
 
 ## Packages installed
