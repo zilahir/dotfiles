@@ -1,5 +1,11 @@
 # dotfiles
 
+## install
+
+```bash
+git clone --separate-git-dir=$HOME/.dotfiles https://github.com/zilahir/dotfiles.git ~
+```
+
 ## Packages installed
 
 ### Brew
