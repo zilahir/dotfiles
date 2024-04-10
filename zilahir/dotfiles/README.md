@@ -34,6 +34,10 @@ git clone --separate-git-dir=$HOME/zilahir/dotfiles https://github.com/zilahir/d
 
 [`fd`](https://github.com/sharkdp/fd)
 
+#### `zsh`
+
+[`zsh`](https://github.com/ohmyzsh/ohmyzsh)
+
 #### zsh-syntax-highlighting.zsh
 
 [`zsh-syntax-highlighting.zsh`](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
