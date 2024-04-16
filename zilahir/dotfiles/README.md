@@ -44,7 +44,7 @@ git clone --separate-git-dir=$HOME/zilahir/dotfiles https://github.com/zilahir/d
 
 #### atuin
 
-[`atuion`](https://github.com/atuinsh/atuin)
+[`atuin`](https://github.com/atuinsh/atuin)
 
 #### tmux
 
