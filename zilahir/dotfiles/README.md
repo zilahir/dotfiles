@@ -49,3 +49,7 @@ git clone --separate-git-dir=$HOME/zilahir/dotfiles https://github.com/zilahir/d
 #### tmux
 
 [`tmux`](https://github.com/tmux/tmux)
+
+#### antidote
+
+[`antidote`](https://github.com/mattmc3/antidote)
