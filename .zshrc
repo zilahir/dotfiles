@@ -108,7 +108,16 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # source antidote
-source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+# source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+
+if [[ -r "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh" ]]; then
+	echo "Antidote installed via HomeBrew"
+  source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+else
+  [[ -r "${ZDOTDIR:-~}/.antidote/antidote.zsh" ]]
+  echo "Antidote is installed via Git"
+  source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+fi
 
 # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
 antidote load
