@@ -53,3 +53,7 @@ git clone --separate-git-dir=$HOME/zilahir/dotfiles https://github.com/zilahir/d
 #### antidote
 
 [`antidote`](https://github.com/mattmc3/antidote)
+
+### powerlevel10k
+
+[`powerlevel10k`](https://github.com/romkatv/powerlevel10k)
