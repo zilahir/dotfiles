@@ -145,3 +145,7 @@ alias ls=". ~/bin/ls"
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(atuin init zsh)"
+
+# n (node version manager)
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
