@@ -149,3 +149,11 @@ eval "$(atuin init zsh)"
 # n (node version manager)
 export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
+
+# golang air
+alias air=$(go env GOPATH)/bin/air
+
+# wails
+if [[ -d $HOME/go/bin/ ]]; then
+  export PATH=$HOME/go/bin/:$PATH
+fi
