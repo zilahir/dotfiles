@@ -53,3 +53,14 @@ vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true,
 map("n", "<leader>gg", function()
   Util.terminal({ "gitui" }, { cwd = Util.root(), esc_esc = false, ctrl_hjkl = false })
 end, { desc = "gitui (root dir)" })
+
+-- jumping to the end of the line
+
+vim.api.nvim_set_keymap("n", "1", "$", { noremap = true, silent = true })
+
+-- disable continue comments
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
+  end,
+})
