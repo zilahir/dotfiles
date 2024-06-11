@@ -157,3 +157,7 @@ alias air=$(go env GOPATH)/bin/air
 if [[ -d $HOME/go/bin/ ]]; then
   export PATH=$HOME/go/bin/:$PATH
 fi
+
+# alias for kitty shell
+
+alias s="kitten ssh"
