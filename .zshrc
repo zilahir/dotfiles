@@ -159,5 +159,6 @@ if [[ -d $HOME/go/bin/ ]]; then
 fi
 
 # alias for kitty shell
-
 alias s="kitten ssh"
+
+export PATH=$HOME/bin:$PATH
