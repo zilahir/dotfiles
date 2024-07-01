@@ -32,8 +32,15 @@ return {
       },
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {
+        html = function(_, opts)
+          require("lspconfig").html.setup(opts)
+          return true
+        end,
         templ = function(_, opts)
+          opts.cmd_env = opts.cmd_env or {}
+          opts.cmd_env.TEMPL_EXPERIMENT = "rawgo"
           require("lspconfig").templ.setup(opts)
+          return true
         end,
         lua_ls = function(_, opts)
           require("lspconfig").lua_ls.setup({})
@@ -47,4 +54,3 @@ return {
     },
   },
 }
-
