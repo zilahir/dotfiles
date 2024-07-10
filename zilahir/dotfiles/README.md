@@ -2,8 +2,19 @@
 
 ## install
 
-```bash
+````bash
 git clone --separate-git-dir=$HOME/zilahir/dotfiles https://github.com/zilahir/dotfiles.git ~
+
+### Install script
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/zilahir/dotfiles/master/install.sh | sh -
+````
+
+```
+
+```
+
 ```
 
 ## Packages installed
@@ -57,3 +68,4 @@ git clone --separate-git-dir=$HOME/zilahir/dotfiles https://github.com/zilahir/d
 ### powerlevel10k
 
 [`powerlevel10k`](https://github.com/romkatv/powerlevel10k)
+```
