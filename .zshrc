@@ -137,6 +137,19 @@ esac
 
 eval "$(zoxide init zsh)"
 
+function check_empty_line_and_run_zi() {
+  if [[ -z "$BUFFER" ]]; then
+    zi
+  else
+    # zle accept-line
+    zle backward-char
+  fi
+}
+
+# Bind the left arrow key to the function
+zle -N check_empty_line_and_run_zi
+bindkey "^[OD" check_empty_line_and_run_zi  # Left arrow key
+
 alias dotfiles="git --git-dir=$HOME/zilahir/dotfiles --work-tree=$HOME"
 alias gitui="eval '$(ssh-agent)' && ssh-add ~/.ssh/id_ed25519 && gitui"
 
