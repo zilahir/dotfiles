@@ -175,3 +175,9 @@ fi
 alias s="kitten ssh"
 
 export PATH=$HOME/bin:$PATH
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+alias lu=". ~/bin/dotfiles_lazylock"
