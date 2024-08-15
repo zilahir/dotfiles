@@ -1,0 +1,3 @@
+dotfiles add ~/.config/nvim/lazy-lock.json
+dotfiles commit -m "lazy update"
+dotfiles push
