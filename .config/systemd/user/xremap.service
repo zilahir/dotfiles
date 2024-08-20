@@ -1,0 +1,11 @@
+[Unit]
+Description=xremap
+
+[Service]
+Restart=always
+ExecStartPre=setxkbmap -layout hu
+ExecStartPre=xset r rate 200 80
+StandardOutput=journal
+StandardError=journal
+
+ExecStart=/home/zilahir/bin/xremap /home/zilahir/.config/xremap/config.yml --device /dev/input/event16
