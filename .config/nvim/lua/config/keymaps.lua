@@ -64,3 +64,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
     vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
   end,
 })
+
+-- latex compile
+vim.api.nvim_set_keymap("n", "<leader>xc", "<Plug>(vimtex-compile)", { noremap = false, silent = true })
