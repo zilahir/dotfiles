@@ -1,11 +1,9 @@
 /bin/bash
 
 # check if the target folder if exists, and its not empty
-
 if [ -d ~/zilahir/dotfiles ] && [ -n "$(ls -A ~/zilahir/dotfiles)" ]; then
   echo "Directory ~/zilahir/dotfiles exists and is not empty, deleting"
   rm -rf ~/zilahir/dotfiles
-  mkdir -p ~/zilahir/dotfiles
 fi
 
 # check if ~/tmpdotfiles exists
