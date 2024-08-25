@@ -181,3 +181,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 
 alias lu=". ~/bin/dotfiles_lazylock"
+
+BIN_PATH=$HOME/bin
+TAILWINDCSS_PATH=$HOME/bin/tailwindcss
+if [[ -e "$TAILWINDCSS_PATH" ]]; then
+  export PATH=$BIN_PATH:$PATH
+fi
+
