@@ -9,13 +9,8 @@ git clone --separate-git-dir=$HOME/zilahir/dotfiles https://github.com/zilahir/d
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/zilahir/dotfiles/master/install.sh | sh -
-````
-
 ```
 
-```
-
-```
 
 ## Packages installed
 
@@ -69,3 +64,4 @@ curl -fsSL https://raw.githubusercontent.com/zilahir/dotfiles/master/install.sh 
 
 [`powerlevel10k`](https://github.com/romkatv/powerlevel10k)
 ```
+````
