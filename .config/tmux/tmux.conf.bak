@@ -50,7 +50,7 @@ set -g @sessionx-zoxide-mode 'on'
 
 #catpuccing config
 set -g @catppuccin_window_right_separator "█ "
-set -g @catppuccin_window_number_position "left"
+set -g @catppuccin_window_number_position "right"
 set -g @catppuccin_window_middle_separator " | "
 
 set -g @catppuccin_window_default_fill "none"
@@ -93,6 +93,9 @@ set -g status-position top
 
 # keybinding for reload tmux config
 run '~/.tmux/plugins/tpm/tpm'
+
+# clear the terminal on a new tmux session
+set-hook -g session-created 'send-keys "clear" Enter'
 
 # reload config 
 unbind r
