@@ -23,7 +23,8 @@
 
     #packages
     home.packages = with pkgs; [
-      neovim
+      air
+      templ
       atuin
       ripgrep
       eza
@@ -40,7 +41,13 @@
       jq
       git
       fzf
+      tailwindcss
     ];
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   programs.tmux = {
     enable = true;
@@ -104,8 +111,10 @@
     ];
 
     shellAliases = {
-    #   ls = builtins.readFile ../../../bin/ls;
       dotfiles = "git --git-dir=$HOME/zilahir/dotfiles --work-tree=$HOME";
+      kittyu = "curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin";
+      lu = ". ~/bin/dotfiles_lazylock";
+      tailwind = "tailwindcss";
     };
   };
 
