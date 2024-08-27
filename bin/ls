@@ -1,5 +1,7 @@
 #!/bin/bash
 
-function lss { eza -l --icons --all; }
+function lss {
+  eza "$@"
+}
 
-lss
+lss "$@"
