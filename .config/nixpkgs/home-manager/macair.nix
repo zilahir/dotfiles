@@ -34,9 +34,8 @@
       fd
       zsh
       zsh-syntax-highlighting
-      tmux
       antidote
-      zsh-powerlevel10k
+      # zsh-powerlevel10k
       speedtest-cli
       jq
       git
@@ -47,6 +46,13 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+  };
+
+  programs.oh-my-posh = {
+    enable = true;
+    enableZshIntegration = true;
+    # useTheme = "catppuccin_mocha";
+    settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile ../../zsh/oh-my-posh/mocha.json));
   };
 
   programs.tmux = {
@@ -99,15 +105,15 @@
       "ohmyzsh/ohmyzsh path:plugins/extract"
     ];
 
-    initExtraBeforeCompInit = builtins.readFile ../../zsh/.zshinit;
+    initExtra = builtins.readFile ../../zsh/.zshinit;
     syntaxHighlighting.enable = true;
 
     plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
+      # {
+      #   name = "powerlevel10k";
+      #   src = pkgs.zsh-powerlevel10k;
+      #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      # }
     ];
 
     shellAliases = {
@@ -115,11 +121,12 @@
       kittyu = "curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin";
       lu = ". ~/bin/dotfiles_lazylock";
       tailwind = "tailwindcss";
+      gb = "git rev-parse --abbrev-ref HEAD | pbcopy";
     };
   };
 
   #p10k config
-  home.file.".p10k.zsh".text = builtins.readFile ../../zsh/.p10k.zsh;
+  # home.file.".p10k.zsh".text = builtins.readFile ../../zsh/.p10k.zsh;
 
   programs.fzf = {
     enable = true;
