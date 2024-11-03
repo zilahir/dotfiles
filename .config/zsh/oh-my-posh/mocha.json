@@ -1,0 +1,111 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "os": "#ACB0BE",
+    "closer": "p:os",
+    "pink": "#F5C2E7",
+    "lavender": "#B4BEFE",
+    "blue": "#89B4FA",
+    "error": "#e91e63"
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "newline": true,
+      "type": "prompt",
+      "segments": [
+        {
+          "foreground": "p:os",
+          "style": "plain",
+          "template": " {{.Icon}} ",
+          "type": "os"
+        },
+        {
+          "foreground": "p:pink",
+          "properties": {
+            "folder_icon": "\ue5fe",
+            "home_icon": "~",
+            "style": "agnoster_short"
+          },
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "p:lavender",
+          "properties": {
+            "branch_icon": "\ue725 ",
+            "cherry_pick_icon": "\ue29b ",
+            "commit_icon": "\uf417 ",
+            "fetch_status": true,
+            "fetch_upstream_icon": true,
+            "merge_icon": "\ue727 ",
+            "no_commits_icon": "\uf0c3 ",
+            "rebase_icon": "\ue728 ",
+            "revert_icon": "\uf0e2 ",
+            "tag_icon": "\uf412 "
+          },
+          "template": "{{ .UpstreamIcon }}{{ if gt (len (splitList \"/\" .HEAD)) 1 }}\ue727../{{end}}{{ (splitList \"/\" .HEAD | last) }} {{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350> \uf046 {{ .Staging.String }}</>{{ end }} ",
+          "style": "powerline",
+          "type": "git"
+        },
+        {
+          "style": "plain",
+          "foreground": "p:closer",
+          "template": "❯",
+          "type": "text",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}red{{end}}",
+            "{{ if eq .Code 0 }}p:pink{{end}}"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "alignment": "right",
+      "newline": false,
+      "segments": [
+        {
+          "type": "status",
+          "style": "diamond",
+          "foreground": "#193549",
+          "background": "transparent",
+          "background_templates": ["{{ if .Error }}p:error{{ end }}"],
+          "leading_diamond": "",
+          "trailing_diamond": " ",
+          "template": "{{ if .Error }}<#ffcac8> \uf530</> {{ else }} <#77dd77>\uf00c</> {{ end }}",
+          "properties": {
+            "fetch_status": false,
+            "fetch_upstream_icon": false,
+            "always_enabled": true
+          }
+        },
+        {
+          "type": "executiontime",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#ffffff",
+          "background": "transparent",
+          "template": " <#fefefe>\uf254</> {{ .FormattedMs }} ",
+          "properties": {
+            "threshold": 500,
+            "style": "austin",
+            "always_enabled": true
+          }
+        }
+      ]
+    }
+  ],
+  "transient_prompt": {
+    "background": "transparent",
+    "template": "{{ .Shell }}❯ ",
+    "foreground_templates": [
+      "{{ if gt .Code 0 }}red{{end}}",
+      "{{ if eq .Code 0 }}magenta{{end}}"
+    ]
+  },
+  "tooltips": [],
+  "final_space": true,
+  "version": 2
+}

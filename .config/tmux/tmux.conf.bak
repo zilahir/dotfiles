@@ -42,7 +42,7 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'christoomey/vim-tmux-navigator'
 # set -g @plugin 'dreamsofcode-io/catppuccin-tmux'
-set -g @plugin 'catppuccin/tmux'
+set -g @plugin 'catppuccin/tmux#latest'
 set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'sainnhe/tmux-fzf'
 
@@ -61,6 +61,9 @@ set -g @catppuccin_status_modules_right "directory"
 set -g @catppuccin_status_left_separator "█"
 set -g @catppuccin_status_right_separator "█"
 set -g @catppuccin_status_modules_left "session"
+# Window
+set -g @catppuccin_window_current_text "#{window_name}"
+set -g @catppuccin_window_default_text "#{window_name}"
 
 # set vi-mode
 set-window-option -g mode-keys vi
@@ -85,7 +88,14 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 # move status position to top
 set -g status-position top
 
+# auto rename off
+# set-option -g allow-rename off
+
+# keybinding for reload tmux config
 run '~/.tmux/plugins/tpm/tpm'
+
+# clear the terminal on a new tmux session
+set-hook -g session-created 'send-keys "clear" Enter'
 
 # reload config 
 unbind r
