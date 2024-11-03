@@ -30,17 +30,23 @@
       eza
       zoxide
       tree
-      gitui
+      lazygit
       fd
       zsh
       zsh-syntax-highlighting
       antidote
-      # zsh-powerlevel10k
       speedtest-cli
       jq
       git
       fzf
       tailwindcss
+      lynx
+      miniserve
+      php83Packages.composer
+      php
+      go-migrate
+      iamb
+      go
     ];
 
   programs.neovim = {
@@ -93,6 +99,10 @@
     oh-my-zsh = {
       enable = true;
     };
+    sessionVariables = {
+      GITODO_VS_CODE_EXAMPLE_WORKSPACE_PATH="$HOME/zilahir/todo-demo/"; # Change this to your desired path
+
+    };
     autosuggestion.enable = true;
     enableCompletion = true;
     antidote.enable = false;
@@ -122,14 +132,22 @@
       lu = ". ~/bin/dotfiles_lazylock";
       tailwind = "tailwindcss";
       gb = "git rev-parse --abbrev-ref HEAD | pbcopy";
+      gitui = "lazygit";
+      gs = "git status";
+      gpr = "git pull --rebase";
     };
   };
 
   #p10k config
-  # home.file.".p10k.zsh".text = builtins.readFile ../../zsh/.p10k.zsh;
+  # home.file.".p10k.zsh".text = builtins.readFile ../../zsh/.p10k.zsh;
 
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.go = {
+    enable = true;
+    goPath = "${config.home.homeDirectory}/go";
   };
 }

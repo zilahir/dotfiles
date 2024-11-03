@@ -25,3 +25,6 @@ bindkey "^[OD" check_empty_line_and_run_zi  # Left arrow key
 
 # DISABLE_AUTO_TITLE="true"
 function stitle() { echo -en "\e]2;$@\a" }
+
+# add extra go path
+export PATH=$PATH:$HOME/go/bin

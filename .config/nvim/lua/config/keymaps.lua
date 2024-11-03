@@ -1,6 +1,7 @@
 local map = vim.keymap.set
 local mouse = vim.opt.mouse
 local Util = require("lazyvim.util")
+local wk = require("which-key")
 
 -- disable mouse
 mouse = ""
@@ -48,14 +49,7 @@ map("n", "<C-k>", "10k", { noremap = true, silent = true })
 vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
--- gitui
-
-map("n", "<leader>gg", function()
-  Util.terminal({ "gitui" }, { cwd = Util.root(), esc_esc = false, ctrl_hjkl = false })
-end, { desc = "gitui (root dir)" })
-
 -- jumping to the end of the line
-
 vim.api.nvim_set_keymap("n", "1", "$", { noremap = true, silent = true })
 
 -- disable continue comments
@@ -67,3 +61,14 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 -- latex compile
 vim.api.nvim_set_keymap("n", "<leader>xc", "<Plug>(vimtex-compile)", { noremap = false, silent = true })
+
+-- yanking entire function
+vim.api.nvim_set_keymap("n", "<leader>yf", "yVaB", { noremap = false, silent = true })
+-- yanking entire file
+vim.api.nvim_set_keymap("n", "<leader>yff", "1, $y", { noremap = false, silent = true })
+
+-- wk.add({
+--   { "<leader>yf", "yVaB", desc = "Yank function", group = "Yank" },
+-- }, {
+--   prefix = "<leader>",
+-- })

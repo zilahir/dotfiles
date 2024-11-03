@@ -1,4 +1,4 @@
-local templ = require("lspconfig.server_configurations.templ")
+-- local templ = require("lspconfig.server_configurations.templ")
 return {
   {
     "neovim/nvim-lspconfig",
@@ -15,6 +15,7 @@ return {
     ---@class PluginLspOpts
     opts = {
       ---@type lspconfig.options
+      inlay_hints = { enabled = true },
       diagnostics = {
         virtual_text = false,
         underline = true,
@@ -46,10 +47,10 @@ return {
           require("lspconfig").lua_ls.setup({})
           return true
         end,
-        tsserver = function(_, opts)
-          require("typescript").setup({ server = opts })
-          return true
-        end,
+        -- tsserver = function(_, opts)
+        --   require("typescript").setup({ server = opts })
+        --   return true
+        -- end,
       },
     },
   },
