@@ -1,11 +1,30 @@
 {
+    "global": { "show_in_menu_bar": false },
     "profiles": [
         {
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Remap Option+3 to # for Hungarian keyboard layout",
+                        "description": "Fix Option+3 to # and preserve Right Alt + Í for | on Hungarian layout",
                         "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "non_us_backslash" },
+                                "to": [{ "key_code": "grave_accent_and_tilde" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "grave_accent_and_tilde" },
+                                "to": [{ "key_code": "non_us_backslash" }],
+                                "type": "basic"
+                            },
                             {
                                 "from": {
                                     "key_code": "3",
@@ -15,6 +34,19 @@
                                     {
                                         "key_code": "3",
                                         "modifiers": ["right_shift", "right_alt"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "international3",
+                                    "modifiers": { "mandatory": ["right_alt"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "backslash",
+                                        "modifiers": ["right_shift"]
                                     }
                                 ],
                                 "type": "basic"

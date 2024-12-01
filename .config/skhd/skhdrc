@@ -1,1 +1,9 @@
 alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+
+# find previous workspace without vlc
+# connect to nordvpn
+
+
+# launch fzf for aerospace
+
+alt - a : ~/bin/aerospace-fzf

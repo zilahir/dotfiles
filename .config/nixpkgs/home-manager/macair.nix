@@ -47,6 +47,7 @@
       go-migrate
       iamb
       go
+      cargo
     ];
 
   programs.neovim = {
@@ -135,6 +136,7 @@
       gitui = "lazygit";
       gs = "git status";
       gpr = "git pull --rebase";
+      ff = ". ~/bin/aerospace";
     };
   };
 
