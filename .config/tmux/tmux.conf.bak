@@ -1,6 +1,8 @@
 # set-option -sa terminal-overrides ",xterm*:Tc"
 # set-option -sa terminal-overrides ",screen-256color:Tc"
 set -g mouse on
+set-environment -g SHELL $SHELL
+set -g default-command "$SHELL" # New fix see: https://github.com/nix-community/home-manager/issues/5952
 
 set-option -sa terminal-features ',kitty:RGB'
 
