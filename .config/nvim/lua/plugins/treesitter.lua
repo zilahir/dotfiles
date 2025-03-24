@@ -14,6 +14,7 @@ return {
       "json",
       "lua",
       "http",
+      "astro",
     })
   end,
 }

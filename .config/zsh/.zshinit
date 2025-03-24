@@ -28,3 +28,6 @@ function stitle() { echo -en "\e]2;$@\a" }
 
 # add extra go path
 export PATH=$PATH:$HOME/go/bin
+
+# add libpq
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

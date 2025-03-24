@@ -23,6 +23,7 @@
 
     #packages
     home.packages = with pkgs; [
+      libpqxx
       air
       templ
       atuin

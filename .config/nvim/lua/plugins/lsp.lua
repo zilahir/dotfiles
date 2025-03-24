@@ -39,6 +39,7 @@ return {
         },
         tailwindcss = {},
         lua_ls = {},
+        astro = {},
       },
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {
