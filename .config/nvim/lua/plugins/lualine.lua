@@ -7,6 +7,15 @@ local function get_json_path()
   return ""
 end
 
+local function get_enclosing_folder_name()
+  local path = vim.fn.expand("%:p:h")
+  if path == "" then
+    return ""
+  end
+  local folder_name = path:match("([^/]+)$")
+  return folder_name
+end
+
 return {
   {
     "nvim-lualine/lualine.nvim",
@@ -18,7 +27,7 @@ return {
           theme = "tokyonight",
         },
         sections = {
-          lualine_c = { "filename", get_json_path },
+          lualine_c = { get_enclosing_folder_name, "filename", get_json_path },
         },
       }
     end,
