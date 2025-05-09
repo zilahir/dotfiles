@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 -- latex compile
-vim.api.nvim_set_keymap("n", "<leader>xc", "<Plug>(vimtex-compile)", { noremap = false, silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>xc", "<Plug>(vimtex-compile)", { noremap = false, silent = true })
 
 -- yanking entire function
 vim.api.nvim_set_keymap("n", "<leader>yf", "yVaB", { noremap = false, silent = true })
