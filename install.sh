@@ -1,17 +1,37 @@
-/bin/bash
+#!/bin/bash
+set -e
 
-# check if the target folder if exists, and its not empty
-if [ -d ~/zilahir/dotfiles ] && [ -n "$(ls -A ~/zilahir/dotfiles)" ]; then
-  echo "Directory ~/zilahir/dotfiles exists and is not empty, deleting"
-  rm -rf ~/zilahir/dotfiles
+BARE_REPO="$HOME/zilahir/dotfiles"
+REPO_URL="https://github.com/zilahir/dotfiles.git"
+
+# Exit if repo exists (don't delete!)
+if [ -d "$BARE_REPO" ]; then
+    echo "Dotfiles already exist at $BARE_REPO"
+    echo "Run 'dotfiles status' to check"
+    exit 0
 fi
 
-# check if ~/tmpdotfiles exists
-if [ -d ~/tmpdotfiles ]; then
-  echo "Directory ~/tmpdotfiles exists."
-  rm -rf ~/tmpdotfiles
-fi
+# Clone bare repo
+echo "Cloning bare repo to $BARE_REPO..."
+git clone --bare "$REPO_URL" "$BARE_REPO"
 
-git clone --separate-git-dir=$HOME/zilahir/dotfiles https://github.com/zilahir/dotfiles.git ~/tmpdotfiles
-rsync --recursive --verbose --exclude '.git' ~/tmpdotfiles/ $HOME/
-rm -r ~/tmpdotfiles
+# Define dotfiles as function for this script
+dotfiles() { git --git-dir="$BARE_REPO" --work-tree="$HOME" "$@"; }
+
+# Backup conflicting files, then checkout
+echo "Checking out dotfiles..."
+mkdir -p "$HOME/.dotfiles-backup"
+dotfiles checkout 2>&1 | grep -E "\s+\." | awk {'print $1'} | \
+    xargs -I {} mv "$HOME/{}" "$HOME/.dotfiles-backup/" 2>/dev/null || true
+dotfiles checkout
+
+# Hide untracked files
+dotfiles config --local status.showUntrackedFiles no
+
+echo ""
+echo "Dotfiles installed successfully!"
+echo " - Use 'dotfiles status' to see status"
+echo " - Use 'dotfiles add <file>' to add files"
+echo " - Use 'dotfiles commit -m \"msg\"' to commit"
+echo ""
+echo "Run 'home-manager switch' to apply Home Manager configuration"
