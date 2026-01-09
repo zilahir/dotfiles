@@ -8,7 +8,7 @@
   # Machine-specific settings
   home.username = "pi";  # Change this to your Raspberry Pi username
   home.homeDirectory = "/home/pi";  # Change this to match your username
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.11";
 
   programs.home-manager.path = "/home/pi/.config/nixpkgs/home-manager";  # Adjust path as needed
 
