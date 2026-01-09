@@ -3,14 +3,38 @@ local mouse = vim.opt.mouse
 local Util = require("lazyvim.util")
 local wk = require("which-key")
 
+local function copy_file_path()
+  -- Get the absolute path of the current file
+  local file_path = vim.fn.expand("%:p")
+  if file_path == "" then
+    print("No file path to copy.")
+    return
+  end
+
+  -- Try to find the Git root directory
+  local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+  if not git_root or git_root == "" then
+    print("Not inside a Git repository.")
+    return
+  end
+
+  -- Get the relative path from the Git root
+  local relative_path = vim.fn.fnamemodify(file_path, ":." .. git_root)
+
+  -- Copy to system clipboard
+  vim.fn.setreg("+", relative_path)
+  print("Relative path copied to clipboard: " .. relative_path)
+end
+
 -- disable mouse
 mouse = ""
 
+map("n", "<leader>cp", copy_file_path, { desc = "Copy File Path" })
 map("t", "<C-t>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 map("n", "<leader>í", function()
   require("trouble").toggle()
 end)
-map("n", "<leader>í", function()
+map("n", "<leader>`", function()
   require("trouble").toggle("diagnostics")
 end)
 map("n", "<leader>d", vim.diagnostic.open_float)
@@ -45,9 +69,11 @@ map("n", "<C-j>", "10j", { noremap = true, silent = true })
 map("n", "<C-k>", "10k", { noremap = true, silent = true })
 
 -- copilot setup
-
 vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
+-- claude code setup
+vim.keymap.set("n", "<leader>cc", "<cmd>ClaudeCode<CR>", { desc = "Toggle Claude Code" })
 
 -- jumping to the end of the line
 vim.api.nvim_set_keymap("n", "1", "$", { noremap = true, silent = true })

@@ -1,55 +1,50 @@
 { config, lib, pkgs, ... }:
 
-# let
-#   dotfiles = buitins.fetchgit {
-#       url = ""
-#       ref = "master";
-#     };
-# in
-
 {
-    home.username = "richardzilahi";
-    home.homeDirectory = "/Users/richardzilahi";
-    home.stateVersion = "24.11";
 
-    programs.home-manager.path = "/Users/richardzilahi/.config/nixpkgs/home-manager";
-    programs.home-manager.enable = true;
+  home.username = "richardzilahi";
+  home.homeDirectory = "/Users/richardzilahi";
+  home.stateVersion = "25.05";
 
-    #config
-    programs.git = {
-      enable = true;
-      userName = "Richard Zilahi";
-    };
+  programs.home-manager.path = "/Users/richardzilahi/.config/nixpkgs/home-manager";
+  programs.home-manager.enable = true;
 
-    #packages
-    home.packages = with pkgs; [
-      libpqxx
-      air
-      templ
-      atuin
-      ripgrep
-      eza
-      zoxide
-      tree
-      lazygit
-      fd
-      zsh
-      zsh-syntax-highlighting
-      antidote
-      speedtest-cli
-      jq
-      git
-      fzf
-      tailwindcss
-      lynx
-      miniserve
-      php83Packages.composer
-      php
-      go-migrate
-      iamb
-      go
-      cargo
-    ];
+  #config
+  programs.git = {
+    enable = true;
+    userName = "Richard Zilahi";
+  };
+
+  #packages
+  home.packages = with pkgs; [
+    libpqxx
+    air
+    templ
+    atuin
+    ripgrep
+    eza
+    zoxide
+    tree
+    lazygit
+    fd
+    zsh
+    zsh-syntax-highlighting
+    antidote
+    speedtest-cli
+    jq
+    git
+    fzf
+    tailwindcss
+    lynx
+    miniserve
+    php83Packages.composer
+    php
+    go-migrate
+    iamb
+    go
+    cargo
+    volta
+  ];
 
   programs.neovim = {
     enable = true;
@@ -101,10 +96,6 @@
     oh-my-zsh = {
       enable = true;
     };
-    sessionVariables = {
-      GITODO_VS_CODE_EXAMPLE_WORKSPACE_PATH="$HOME/zilahir/todo-demo/"; # Change this to your desired path
-
-    };
     autosuggestion.enable = true;
     enableCompletion = true;
     antidote.enable = false;
@@ -149,8 +140,10 @@
     enableZshIntegration = true;
   };
 
-  programs.go = {
-    enable = true;
-    goPath = "${config.home.homeDirectory}/go";
-  };
+  #programs.go = {
+  #  enable = true;
+  #  env = {
+  #    GOPATH = "${config.home.homeDirectory}/go";
+  #  };
+  #};
 }
