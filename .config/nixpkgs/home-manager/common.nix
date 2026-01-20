@@ -101,7 +101,7 @@
     autosuggestion.enable = true;
     enableCompletion = true;
 
-    initExtra = builtins.readFile ../../zsh/.zshinit + ''
+    initContent = builtins.readFile ../../zsh/.zshinit + ''
       # Auto-rename zellij tabs to current directory
       if [[ -n $ZELLIJ ]]; then
         function zellij_tab_name_update() {
