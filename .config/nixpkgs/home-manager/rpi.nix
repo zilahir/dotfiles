@@ -6,11 +6,11 @@
   ];
 
   # Machine-specific settings
-  home.username = "pi";  # Change this to your Raspberry Pi username
-  home.homeDirectory = "/home/pi";  # Change this to match your username
+  home.username = "zilahir";
+  home.homeDirectory = "/home/zilahir";
   home.stateVersion = "25.11";
 
-  programs.home-manager.path = "/home/pi/.config/nixpkgs/home-manager";  # Adjust path as needed
+  programs.home-manager.path = "/home/pi/.config/nixpkgs/home-manager";
 
   # Git email (override the common.nix setting if different)
   programs.git.extraConfig.user.email = "zilahi@gmail.com";
