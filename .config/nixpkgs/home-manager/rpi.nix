@@ -10,7 +10,7 @@
   home.homeDirectory = "/home/zilahir";
   home.stateVersion = "25.11";
 
-  programs.home-manager.path = "/home/pi/.config/nixpkgs/home-manager";
+  programs.home-manager.path = "/home/zilahir/.config/nixpkgs/home-manager";
 
   # Git email (override the common.nix setting if different)
   programs.git.extraConfig.user.email = "zilahi@gmail.com";
