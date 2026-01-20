@@ -17,7 +17,7 @@
 
   # Raspberry Pi specific packages (if any)
   home.packages = with pkgs; [
-    # Add RPi-specific packages here
+    volta  # Node.js version manager
   ];
 
   # Override or add RPi-specific shell aliases
