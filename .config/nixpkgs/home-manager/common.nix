@@ -102,6 +102,10 @@
     enableCompletion = true;
 
     initContent = builtins.readFile ../../zsh/.zshinit + ''
+      # Volta (Node.js version manager)
+      export VOLTA_HOME="$HOME/.volta"
+      export PATH="$VOLTA_HOME/bin:$PATH"
+
       # Auto-rename zellij tabs to current directory
       if [[ -n $ZELLIJ ]]; then
         function zellij_tab_name_update() {
