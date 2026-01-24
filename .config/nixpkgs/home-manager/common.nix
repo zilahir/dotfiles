@@ -108,7 +108,10 @@
       export PATH="$VOLTA_HOME/bin:$PATH"
 
       # wgnord VPN helper (needs sudo with preserved PATH)
-      wgnord() { sudo env "PATH=$PATH" "$HOME/.nix-profile/bin/wgnord" "$@"; }
+      wgnord() {
+        local bin="$HOME/.nix-profile/bin/wgnord"
+        sudo env "PATH=$PATH" "$bin" "$@"
+      }
 
       # Auto-rename zellij tabs to current directory
       if [[ -n $ZELLIJ ]]; then
