@@ -121,7 +121,7 @@
       }
 
       vpn-status() {
-        sudo wg show
+        sudo env "PATH=$PATH" wg show
       }
 
       # Auto-rename zellij tabs to current directory
