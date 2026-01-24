@@ -29,5 +29,8 @@ function stitle() { echo -en "\e]2;$@\a" }
 # add extra go path
 export PATH=$PATH:$HOME/go/bin
 
+# add local bin
+export PATH="$HOME/.local/bin:$PATH"
+
 # add libpq (macOS only)
 [[ -d "/opt/homebrew/opt/libpq/bin" ]] && export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
