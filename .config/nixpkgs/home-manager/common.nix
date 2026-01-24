@@ -106,6 +106,24 @@
       export VOLTA_HOME="$HOME/.volta"
       export PATH="$VOLTA_HOME/bin:$PATH"
 
+      # WireGuard VPN helpers
+      vpn-up() {
+        local config="$HOME/.config/wireguard/$1.conf"
+        if [[ -f "$config" ]]; then
+          sudo env "PATH=$PATH" wg-quick up "$config"
+        else
+          echo "Config not found: $config"
+        fi
+      }
+
+      vpn-down() {
+        sudo env "PATH=$PATH" wg-quick down "$1"
+      }
+
+      vpn-status() {
+        sudo wg show
+      }
+
       # Auto-rename zellij tabs to current directory
       if [[ -n $ZELLIJ ]]; then
         function zellij_tab_name_update() {
