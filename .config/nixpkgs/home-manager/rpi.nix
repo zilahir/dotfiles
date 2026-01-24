@@ -25,5 +25,6 @@
   programs.zsh.shellAliases = {
     # Mac-specific aliases removed (kittyu, ff)
     # Add any RPi-specific aliases here
+    wgnord = "sudo env \"PATH=$PATH\" wgnord";
   };
 }
