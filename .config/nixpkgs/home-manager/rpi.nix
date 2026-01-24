@@ -21,6 +21,12 @@
     wireguard-tools # WireGuard VPN
   ];
 
+  # VPN autoconnect setup script
+  home.file.".local/bin/vpn-setup" = {
+    executable = true;
+    text = builtins.readFile ../../sh/vpn-setup.sh;
+  };
+
   # Override or add RPi-specific shell aliases
   programs.zsh.shellAliases = {
     # Mac-specific aliases removed (kittyu, ff)
