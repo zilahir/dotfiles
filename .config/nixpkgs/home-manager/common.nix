@@ -30,7 +30,6 @@
     air
     templ
     go-migrate
-    wgnord  # NordVPN WireGuard client
   ];
 
   # Neovim
@@ -106,12 +105,6 @@
       # Volta (Node.js version manager)
       export VOLTA_HOME="$HOME/.volta"
       export PATH="$VOLTA_HOME/bin:$PATH"
-
-      # wgnord VPN helper (needs sudo with preserved PATH)
-      wgnord() {
-        local bin="$HOME/.nix-profile/bin/wgnord"
-        sudo env "PATH=$PATH" "$bin" "$@"
-      }
 
       # Auto-rename zellij tabs to current directory
       if [[ -n $ZELLIJ ]]; then
