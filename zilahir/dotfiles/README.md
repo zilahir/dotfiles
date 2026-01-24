@@ -1,9 +1,20 @@
 # dotfiles
 
-## install
+My personal dotfiles managed with [Home Manager](https://nix-community.github.io/home-manager/) and Nix.
+
+## Machines
+
+- **MacBook Air** (`macair.nix`)
+- **Raspberry Pi** (`rpi.nix`)
+
+## Install
+
+### Manual install (bare git repo)
 
 ```bash
-git clone --separate-git-dir=$HOME/zilahir/dotfiles https://github.com/zilahir/dotfiles.git ~
+git clone --bare https://github.com/zilahir/dotfiles.git $HOME/zilahir/dotfiles
+dotfiles() { git --git-dir="$HOME/zilahir/dotfiles" --work-tree="$HOME" "$@"; }
+dotfiles checkout
 ```
 
 ### Install script
@@ -12,58 +23,77 @@ git clone --separate-git-dir=$HOME/zilahir/dotfiles https://github.com/zilahir/d
 curl -fsSL https://raw.githubusercontent.com/zilahir/dotfiles/master/install.sh | sh -
 ```
 
-## Packages installed
-
-### Brew
-
-#### Zoxyde
-
-[`Zoxyde`](https://github.com/ajeetdsouza/zoxide)
-
-#### Eza
-
-[`Eza`](https://github.com/eza-community/eza)
-
-#### Tree
-
-[tree](https://github.com/kddnewton/tree)
-
-#### gitui
-
-[`gitui`](https://github.com/extrawurst/gitui)
-
-#### ripgrep
-
-[`ripgrep`](https://github.com/BurntSushi/ripgrep)
-
-#### fd
-
-[`fd`](https://github.com/sharkdp/fd)
-
-#### `zsh`
-
-[`zsh`](https://github.com/ohmyzsh/ohmyzsh)
-
-#### zsh-syntax-highlighting.zsh
-
-[`zsh-syntax-highlighting.zsh`](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
-
-#### atuin
-
-[`atuin`](https://github.com/atuinsh/atuin)
-
-#### tmux
-
-[`tmux`](https://github.com/tmux/tmux)
-
-#### antidote
-
-[`antidote`](https://github.com/mattmc3/antidote)
-
-### powerlevel10k
-
-[`powerlevel10k`](https://github.com/romkatv/powerlevel10k)
+## Structure
 
 ```
-
+.config/nixpkgs/home-manager/
+├── common.nix      # Shared configuration
+├── macair.nix      # MacBook Air specific
+└── rpi.nix         # Raspberry Pi specific
 ```
+
+## Apply configuration
+
+```bash
+# On Raspberry Pi
+home-manager switch --file ~/.config/nixpkgs/home-manager/rpi.nix
+
+# On Mac
+home-manager switch --file ~/.config/nixpkgs/home-manager/macair.nix
+```
+
+## Packages
+
+### Common (all machines)
+
+- **Neovim** - Editor
+- **Lazygit** - Git UI
+- **Zsh** - Shell with oh-my-zsh
+- **Oh-my-posh** - Prompt theme (Catppuccin Mocha)
+- **Eza** - Modern `ls`
+- **Zoxide** - Smart `cd`
+- **Atuin** - Shell history
+- **Fzf** - Fuzzy finder
+- **Ripgrep** - Fast search
+- **Fd** - Fast `find`
+- **Tmux** - Terminal multiplexer (disabled, using Zellij)
+- **Zellij** - Modern terminal multiplexer
+- **Tree** - Directory tree viewer
+- **Go** - Go language
+- **Cargo** - Rust package manager
+- **pnpm** - Node.js package manager
+- **Air** - Live reload for Go
+- **Templ** - Go HTML templating
+- **go-migrate** - Database migrations
+- **Speedtest-cli** - Internet speed test
+- **jq** - JSON processor
+- **lynx** - Text browser
+- **miniserve** - File server
+
+### Raspberry Pi specific
+
+- **Volta** - Node.js version manager
+- **WireGuard-tools** - VPN client
+
+**Note:** For WireGuard VPN to work properly, install `resolvconf` manually on the Pi:
+
+```bash
+sudo apt install resolvconf
+```
+
+### Mac specific
+
+- **Volta** - Node.js version manager
+- **libpqxx** - PostgreSQL C++ client
+- **PHP** - PHP with Composer
+- **iamb** - Matrix client
+
+## Shell aliases
+
+```bash
+dotfiles   # Git for dotfiles
+gs         # git status
+gpr        # git pull --rebase
+lazygit    # gitui (aliased)
+```
+
