@@ -17,7 +17,8 @@
 
   # Raspberry Pi specific packages (if any)
   home.packages = with pkgs; [
-    volta  # Node.js version manager
+    volta     # Node.js version manager
+    nordvpn   # VPN client
   ];
 
   # Override or add RPi-specific shell aliases
